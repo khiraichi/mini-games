@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2048 Game - Harits Web</title>
+  <link rel="stylesheet" href="../../shared.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="game-container">
+    <div class="top-nav">
+      <a href="../../index.html" class="back-btn">← Semua game</a>
+      <h1 class="game-title">🔢 2048</h1>
+    </div>
+
+    <div class="main-content">
+      <div class="game-area">
+        <!-- Pilihan Mode Kesulitan -->
+        <div class="mode-selector">
+          <button id="mode-normal" class="mode-btn active">Normal (Random)</button>
+          <button id="mode-easy" class="mode-btn">Easy (Selalu 2)</button>
+        </div>
+
+        <div class="score-board">
+          <div class="score-box">
+            <span class="label">SKOR</span>
+            <span id="score">0</span>
+          </div>
+          <div class="score-box">
+            <span class="label">REKOR</span>
+            <span id="high-score">0</span>
+          </div>
+        </div>
+
+        <div class="board-wrapper">
+          <div class="grid-container" id="gridContainer">
+            <div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
+            <div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
+            <div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
+            <div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
+          </div>
+
+          <div class="tile-container" id="tileContainer"></div>
+
+          <div id="overlay" class="overlay hidden">
+            <h2 id="overlay-title">Game Over!</h2>
+            <p id="overlay-msg">Tidak ada langkah tersisa.</p>
+            <button id="restart-btn" class="btn">Main Lagi</button>
+          </div>
+        </div>
+
+        <div class="mobile-controls">
+          <button id="btn-up" class="dpad-btn">▲</button>
+          <div class="dpad-middle">
+            <button id="btn-left" class="dpad-btn">◄</button>
+            <button id="btn-right" class="dpad-btn">►</button>
+          </div>
+          <button id="btn-down" class="dpad-btn">▼</button>
+        </div>
+      </div>
+
+      <div class="sidebar-panels">
+        <div class="panel-card">
+          <h3>🎮 Kontrol</h3>
+          <div class="control-row">
+            <span class="control-icon">⌨️</span>
+            <div>
+              <strong>Tombol Panah / WASD</strong>
+              <p>Geser ke Atas, Bawah, Kiri, atau Kanan.</p>
+            </div>
+          </div>
+          <div class="control-row">
+            <span class="control-icon">📱</span>
+            <div>
+              <strong>Layar Sentuh</strong>
+              <p>Gunakan tombol D-Pad di bawah.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-card">
+          <h3>📖 Cara Bermain</h3>
+          <ul class="rules-list">
+            <li><span class="num">1</span> <div>Geser ubin angka. Dua ubin bernilai sama akan <strong>bergabung</strong> saat bersentuhan.</div></li>
+            <li><span class="num">2</span> <div>Nilai bertambah (2 + 2 = 4, 4 + 4 = 8, dst).</div></li>
+            <li><span class="num">🏆</span> <div><strong>Tujuan:</strong> Capai ubin angka <strong>2048</strong>!</div></li>
+            <li><span class="num">❌</span> <div><strong>Game Over:</strong> Papan penuh & tak ada ubin bisa digabung.</div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>

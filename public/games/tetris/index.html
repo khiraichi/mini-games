@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tetris Game - Harits Web</title>
+  <link rel="stylesheet" href="../../shared.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="game-container">
+    <!-- Header Atas: Tombol Kembali & Judul Game -->
+    <div class="top-nav">
+      <a href="../../index.html" class="back-btn">← Semua game</a>
+      <h1 class="game-title">🧱 Tetris</h1>
+    </div>
+
+    <div class="main-content">
+      <!-- Kolom Kiri: Skor, Canvas Game Tetris, & Tombol Kontrol HP -->
+      <div class="game-area">
+        <div class="score-board">
+          <div class="score-box">
+            <span class="label">SKOR</span>
+            <span id="score">0</span>
+          </div>
+          <div class="score-box">
+            <span class="label">LEVEL</span>
+            <span id="level">1</span>
+          </div>
+          <div class="score-box">
+            <span class="label">REKOR</span>
+            <span id="high-score">0</span>
+          </div>
+        </div>
+
+        <div class="canvas-wrapper">
+          <canvas id="gameCanvas" width="240" height="400"></canvas>
+
+          <div id="overlay" class="overlay">
+            <h2 id="overlay-title">Tetris Classic</h2>
+            <p id="overlay-msg">Tekan tombol Start atau spasi untuk mulai</p>
+            <button id="start-btn" class="btn">Mulai Game</button>
+          </div>
+        </div>
+
+        <!-- Mobile / On-Screen Controls -->
+        <div class="mobile-controls">
+          <div class="mobile-row">
+            <button id="btn-left" class="dpad-btn">◄ Kiri</button>
+            <button id="btn-rotate" class="dpad-btn accent">🔄 Putar</button>
+            <button id="btn-right" class="dpad-btn">Kanan ►</button>
+          </div>
+          <div class="mobile-row">
+            <button id="btn-down" class="dpad-btn">▼ Turun</button>
+            <button id="btn-drop" class="dpad-btn accent">⚡ Jatuh</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kolom Kanan: Preview Blok Berikutnya, Kontrol, & Cara Bermain -->
+      <div class="sidebar-panels">
+        <div class="panel-card next-panel">
+          <h3>📦 Blok Berikutnya</h3>
+          <div class="next-canvas-wrapper">
+            <canvas id="nextCanvas" width="100" height="100"></canvas>
+          </div>
+        </div>
+
+        <div class="panel-card">
+          <h3>🎮 Kontrol</h3>
+          <div class="control-row">
+            <span class="control-icon">⌨️</span>
+            <div>
+              <strong>Panah Kiri / Kanan</strong>
+              <p>Menggeser posisi balok.</p>
+            </div>
+          </div>
+          <div class="control-row">
+            <span class="control-icon">⬆️</span>
+            <div>
+              <strong>Panah Atas / X</strong>
+              <p>Memutar bentuk balok.</p>
+            </div>
+          </div>
+          <div class="control-row">
+            <span class="control-icon">⬇️</span>
+            <div>
+              <strong>Panah Bawah</strong>
+              <p>Mempercepat kejatuhan balok.</p>
+            </div>
+          </div>
+          <div class="control-row">
+            <span class="control-icon">␣</span>
+            <div>
+              <strong>Spasi</strong>
+              <p>Menjatuhkan balok seketika (Hard Drop).</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-card">
+          <h3>📖 Cara Bermain</h3>
+          <ul class="rules-list">
+            <li><span>1</span> Susun balok yang jatuh agar membentuk garis horizontal penuh.</li>
+            <li><span>2</span> Garis yang penuh akan hancur dan menambah poin.</li>
+            <li>❌ <strong>Game Over:</strong> Tumpukan balok menyentuh bagian paling atas layar.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>

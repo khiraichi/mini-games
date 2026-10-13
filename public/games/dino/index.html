@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dino Chrome - Harits Web</title>
+  <link rel="stylesheet" href="../../shared.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="game-container">
+    <!-- Header Atas: Tombol Kembali & Judul Game -->
+    <div class="top-nav">
+      <a href="../../index.html" class="back-btn">← Semua game</a>
+      <h1 class="game-title">🦖 Dino Chrome</h1>
+    </div>
+
+    <div class="main-content">
+      <!-- Kolom Kiri: Skor, Canvas Game, & Tombol Kontrol HP -->
+      <div class="game-area">
+        <div class="score-board">
+          <div class="score-box">
+            <span class="label">SKOR</span>
+            <span id="score">00000</span>
+          </div>
+          <div class="score-box">
+            <span class="label">REKOR</span>
+            <span id="high-score">00000</span>
+          </div>
+        </div>
+
+        <div class="canvas-wrapper">
+          <canvas id="gameCanvas" width="600" height="200"></canvas>
+
+          <div id="overlay" class="overlay">
+            <h2 id="overlay-title">T-Rex Runner</h2>
+            <p id="overlay-msg">Tekan Spasi atau Panah Atas untuk mulai</p>
+            <button id="start-btn" class="btn">Mulai Game</button>
+          </div>
+        </div>
+
+        <!-- Tombol Kontrol Mobile / Sentuh -->
+        <div class="mobile-controls">
+          <button id="btn-jump" class="control-btn">▲ Lompat</button>
+          <button id="btn-duck" class="control-btn">▼ Unduk</button>
+        </div>
+      </div>
+
+      <!-- Kolom Kanan: Panel Kontrol, Cara Bermain, & Tips -->
+      <div class="sidebar-panels">
+        <div class="panel-card">
+          <h3>🎮 Kontrol</h3>
+          <div class="control-row">
+            <span class="control-icon">␣</span>
+            <div>
+              <strong>Spasi / Panah Atas / W</strong>
+              <p>Membuat Dino melompat menghindari kaktus.</p>
+            </div>
+          </div>
+          <div class="control-row">
+            <span class="control-icon">⬇️</span>
+            <div>
+              <strong>Panah Bawah / S</strong>
+              <p>Membuat Dino menunduk menghindari burung terbang.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-card">
+          <h3>📖 Cara Bermain</h3>
+          <ul class="rules-list">
+            <li><span class="num">1</span> <div>Dino akan berlari otomatis, kecepatan lari akan terus meningkat seiring skor bertambah.</div></li>
+            <li><span class="num">2</span> <div>Lompat untuk melewati rintangan kaktus dan unduk untuk melewati burung di udara.</div></li>
+            <li><span class="num">❌</span> <div><strong>Game Over:</strong> Menabrak kaktus atau burung!</div></li>
+          </ul>
+        </div>
+
+        <div class="panel-card">
+          <h3>💡 Tips</h3>
+          <p class="tips-text">Tekan tombol lompat lebih lama untuk melompat sedikit lebih tinggi, dan gunakan tombol unduk untuk mendarat lebih cepat.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>

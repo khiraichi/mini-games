@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Whack-a-Mole - Harits Web</title>
+  <link rel="stylesheet" href="../../shared.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="game-container">
+    <!-- Header Atas: Tombol Kembali & Judul Game -->
+    <div class="top-nav">
+      <a href="../../index.html" class="back-btn">← Semua game</a>
+      <h1 class="game-title">🔨 Whack-a-Mole</h1>
+    </div>
+
+    <div class="main-content">
+      <!-- Kolom Kiri: Skor, Waktu, Papan Grid 3x3, & Tombol Mulai -->
+      <div class="game-area">
+        <div class="score-board">
+          <div class="score-box">
+            <span class="label">SKOR</span>
+            <span id="score">0</span>
+          </div>
+          <div class="score-box">
+            <span class="label">WAKTU</span>
+            <span id="timer">30</span>
+          </div>
+          <div class="score-box">
+            <span class="label">REKOR</span>
+            <span id="high-score">0</span>
+          </div>
+        </div>
+
+        <div class="canvas-wrapper">
+          <canvas id="gameCanvas" width="360" height="360"></canvas>
+
+          <div id="overlay" class="overlay">
+            <h2 id="overlay-title">Whack-a-Mole</h2>
+            <p id="overlay-msg">Pukul sebanyak mungkin tikus dalam 30 detik!</p>
+            <button id="start-btn" class="btn">Mulai Game</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kolom Kanan: Panel Kontrol, Cara Bermain, & Tips -->
+      <div class="sidebar-panels">
+        <div class="panel-card">
+          <h3>🎮 Kontrol</h3>
+          <div class="control-row">
+            <span class="control-icon">🖱️</span>
+            <div>
+              <strong>Klik / Ketuk Mouse</strong>
+              <p>Klik langsung pada kepala tikus yang muncul dari lubang untuk memukulnya.</p>
+            </div>
+          </div>
+          <div class="control-row">
+            <span class="control-icon">📱</span>
+            <div>
+              <strong>Layar Sentuh HP</strong>
+              <p>Ketuk dengan jari pada layar perangkat seluler.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-card">
+          <h3>📖 Cara Bermain</h3>
+          <ul class="rules-list">
+            <li><span class="num">1</span> <div>Tikus akan muncul secara acak dari 9 lubang yang tersedia.</div></li>
+            <li><span class="num">2</span> <div>Setiap tikus yang berhasil dipukul akan memberi <strong>+1 poin</strong>.</div></li>
+            <li><span class="num">⏱️</span> <div>Waktu bermain terbatas 30 detik per ronde. Dapatkan skor sebanyak mungkin sebelum waktu habis!</div></li>
+          </ul>
+        </div>
+
+        <div class="panel-card">
+          <h3>💡 Tips</h3>
+          <p class="tips-text">Fokuskan pandangan di tengah grid agar Anda bisa dengan cepat menjangkau tikus yang muncul di lubang manapun.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <title>Mini Tennis</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="layout">
+
+    <!-- Kolom kiri: game -->
+    <main class="game-col">
+      <a class="back" href="../../">← Semua game</a>
+      <h1>🎾 Mini Tennis</h1>
+      <div class="scoreboard" id="scoreboard">
+        <div class="row"><span class="name">Kamu</span><span class="games" id="gYou">0</span><span class="pts" id="pYou">0</span></div>
+        <div class="row"><span class="name">Komputer</span><span class="games" id="gCpu">0</span><span class="pts" id="pCpu">0</span></div>
+        <div class="row legend"><span class="name"></span><span class="games">game</span><span class="pts">poin</span></div>
+      </div>
+      <canvas id="game" width="480" height="720"></canvas>
+    </main>
+
+    <!-- Kolom kanan: kontrol & cara bermain -->
+    <aside class="info">
+      <section class="card">
+        <h2>🎮 Kontrol</h2>
+        <ul class="controls">
+          <li>
+            <span class="keys"><span class="icon">🖱️</span></span>
+            <span class="desc"><b>Mouse</b>Gerakkan ke kiri / kanan di atas lapangan</span>
+          </li>
+          <li>
+            <span class="keys"><span class="icon">📱</span></span>
+            <span class="desc"><b>Layar sentuh</b>Geser jari di atas lapangan</span>
+          </li>
+          <li>
+            <span class="keys"><kbd>←</kbd><kbd>→</kbd></span>
+            <span class="desc"><b>Keyboard</b>Atau tombol <kbd>A</kbd> <kbd>D</kbd></span>
+          </li>
+          <li>
+            <span class="keys"><kbd class="wide">Spasi</kbd></span>
+            <span class="desc"><b>Mulai / main lagi</b>Bisa juga dengan klik lapangan</span>
+          </li>
+          <li>
+            <span class="keys"><kbd>M</kbd></span>
+            <span class="desc"><b>Suara</b>Nyalakan / matikan</span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>📖 Cara bermain</h2>
+        <ol class="steps">
+          <li>Kamu pegang <span class="chip you">raket putih</span> di bawah, komputer pegang <span class="chip cpu">raket merah</span> di atas.</li>
+          <li>Tangkis bola sebelum lolos ke belakangmu.</li>
+          <li>Kena <b>ujung raket</b> = bola memantul miring, kena <b>tengah</b> = lurus.</li>
+          <li>Bola makin cepat setiap kali dipukul.</li>
+          <li>Kalau bola lolos dari raket lawan, poin untukmu.</li>
+        </ol>
+      </section>
+
+      <section class="card">
+        <h2>🏆 Aturan skor</h2>
+        <ul class="rules">
+          <li>Poin berjalan <b>0 → 15 → 30 → 40</b>.</li>
+          <li>Seri 40-40 disebut <b>Deuce</b>, harus unggul 2 poin untuk menang game.</li>
+          <li>Siapa yang menang <b>3 game</b> lebih dulu memenangkan match.</li>
+        </ul>
+      </section>
+    </aside>
+
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>

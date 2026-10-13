@@ -1,0 +1,204 @@
+* { box-sizing: border-box; }
+
+:root {
+  --bg: #0f172a;
+  --panel: #1e293b;
+  --panel-2: #273449;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --accent: #fde047;
+  --you: #f8fafc;
+  --cpu: #f87171;
+  /* tinggi area game dibatasi viewport supaya kanvas tidak terpotong */
+  --game-w: min(100%, calc((100vh - 175px) * 0.6667));
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+/* ---------- Layout dua kolom ---------- */
+.layout {
+  display: grid;
+  grid-template-columns: auto 320px;
+  gap: 28px;
+  justify-content: center;
+  align-items: start;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 12px 16px 24px;
+}
+
+.game-col {
+  width: var(--game-w);
+  min-width: 300px;
+  text-align: center;
+}
+
+h1 { margin: 2px 0 10px; font-size: 1.5rem; letter-spacing: .5px; }
+
+.back {
+  display: block;
+  text-align: left;
+  margin-top: 4px;
+  font-size: .82rem;
+  color: var(--muted);
+  text-decoration: none;
+}
+.back:hover, .back:focus-visible { color: var(--accent); }
+
+/* ---------- Skor ---------- */
+.scoreboard {
+  background: var(--panel);
+  border-radius: 12px;
+  padding: 8px 14px;
+  margin-bottom: 10px;
+  font-variant-numeric: tabular-nums;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 48px 64px;
+  align-items: center;
+  padding: 3px 0;
+  text-align: right;
+}
+.row .name { text-align: left; font-weight: 600; }
+.row .games { color: var(--muted); }
+.row .pts { font-size: 1.4rem; font-weight: 700; color: var(--accent); }
+
+.row.legend { padding: 0; font-size: .7rem; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
+.row.legend .games, .row.legend .pts { font-size: .7rem; font-weight: 500; color: var(--muted); }
+
+/* ---------- Kanvas ---------- */
+canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .5);
+  touch-action: none;
+  cursor: none;
+  background: #2563eb;
+}
+
+/* ---------- Panel info (kanan) ---------- */
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 8px;
+  text-align: left;
+}
+
+.card {
+  background: var(--panel);
+  border-radius: 14px;
+  padding: 14px 16px;
+}
+
+.card h2 {
+  margin: 0 0 10px;
+  font-size: 1rem;
+  letter-spacing: .3px;
+}
+
+/* Daftar kontrol */
+.controls, .rules, .steps { margin: 0; padding: 0; list-style: none; }
+
+.controls li {
+  display: grid;
+  grid-template-columns: 78px 1fr;
+  gap: 10px;
+  align-items: center;
+  padding: 7px 0;
+  border-top: 1px solid rgba(148, 163, 184, .15);
+}
+.controls li:first-child { border-top: 0; padding-top: 0; }
+
+.keys { display: flex; gap: 4px; align-items: center; }
+.keys .icon { font-size: 1.6rem; line-height: 1; padding-left: 4px; }
+
+.desc { font-size: .82rem; color: var(--muted); line-height: 1.35; }
+.desc b { display: block; color: var(--text); font-size: .88rem; margin-bottom: 1px; }
+
+kbd {
+  display: inline-block;
+  min-width: 30px;
+  padding: 4px 8px;
+  text-align: center;
+  font: 600 .8rem/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  color: var(--text);
+  background: var(--panel-2);
+  border: 1px solid #3b4a63;
+  border-bottom-width: 3px;
+  border-radius: 6px;
+}
+kbd.wide { min-width: 70px; }
+
+/* Langkah-langkah */
+.steps { counter-reset: step; }
+.steps li {
+  counter-increment: step;
+  position: relative;
+  padding: 4px 0 4px 30px;
+  font-size: .85rem;
+  line-height: 1.4;
+  color: var(--text);
+}
+.steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0; top: 4px;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #1e293b;
+  font-size: .72rem;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+}
+
+.chip {
+  display: inline-block;
+  padding: 0 7px;
+  border-radius: 999px;
+  font-size: .78rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+.chip.you { background: var(--you); }
+.chip.cpu { background: var(--cpu); }
+
+/* Aturan skor */
+.rules li {
+  position: relative;
+  padding: 3px 0 3px 16px;
+  font-size: .85rem;
+  line-height: 1.4;
+}
+.rules li::before {
+  content: "";
+  position: absolute;
+  left: 2px; top: 11px;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* ---------- Layar kecil: panel info pindah ke bawah ---------- */
+@media (max-width: 860px) {
+  :root { --game-w: 100%; }
+  .layout {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    gap: 16px;
+  }
+  .game-col { min-width: 0; }
+}

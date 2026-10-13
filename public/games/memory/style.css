@@ -1,0 +1,83 @@
+/* Khusus Memory Match. Gaya umum ada di ../../shared.css */
+
+.mboard {
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 4), 1fr);
+  gap: 10px;
+}
+
+.mcard {
+  position: relative;
+  aspect-ratio: 1;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  perspective: 700px;
+  container-type: inline-size; /* supaya ukuran emoji ikut ukuran kartu */
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mcard .inner {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform .35s ease;
+}
+
+.mcard .face {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  line-height: 1;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.mcard .front {
+  font-size: 40cqw;
+  font-weight: 700;
+  color: rgba(255, 255, 255, .55);
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .15);
+}
+
+.mcard .back {
+  font-size: 52cqw;
+  background: var(--panel-2);
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .08);
+  transform: rotateY(180deg);
+}
+
+.mcard:hover:not(.open):not(.done) .inner { transform: translateY(-3px); }
+
+.mcard.open .inner,
+.mcard.done .inner { transform: rotateY(180deg); }
+
+.mcard.done .back {
+  background: rgba(74, 222, 128, .18);
+  box-shadow: inset 0 0 0 2px var(--ok);
+}
+
+.mcard.wrong .back {
+  background: rgba(248, 113, 113, .16);
+  box-shadow: inset 0 0 0 2px var(--danger);
+}
+.mcard.wrong { animation: shake .35s .3s; }
+
+@keyframes shake {
+  0%, 100% { translate: 0; }
+  25% { translate: -4px; }
+  75% { translate: 4px; }
+}
+
+.mcard:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 12px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .mcard .inner { transition: none; }
+  .mcard.wrong { animation: none; }
+}

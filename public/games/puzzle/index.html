@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Puzzle Geser</title>
+  <link rel="stylesheet" href="../../shared.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="layout">
+
+    <!-- Kolom kiri: game -->
+    <main class="game-col">
+      <a class="back" href="../../">← Semua game</a>
+      <h1>🧩 Puzzle Geser</h1>
+
+      <div class="stats">
+        <div class="stat"><span class="label">Langkah</span><span class="value" id="moves">0</span></div>
+        <div class="stat"><span class="label">Waktu</span><span class="value" id="time">00:00</span></div>
+        <div class="stat"><span class="label">Rekor</span><span class="value" id="best">–</span></div>
+      </div>
+
+      <div class="toolbar">
+        <div class="seg" id="sizes" role="group" aria-label="Ukuran papan">
+          <button type="button" data-size="3" aria-pressed="false">3×3</button>
+          <button type="button" data-size="4" aria-pressed="true">4×4</button>
+          <button type="button" data-size="5" aria-pressed="false">5×5</button>
+        </div>
+        <button type="button" class="btn" id="restart">↻ Acak ulang</button>
+      </div>
+
+      <div class="board-wrap">
+        <div class="pboard" id="board"></div>
+        <div class="overlay" id="win" role="status" aria-live="polite">
+          <div class="overlay-box">
+            <div class="big">🎉</div>
+            <h2>Puzzle selesai!</h2>
+            <p id="winText"></p>
+            <button type="button" class="btn primary" id="again">Main lagi</button>
+          </div>
+        </div>
+      </div>
+
+      <p class="record" id="hint">Urutkan angka dari kiri ke kanan, atas ke bawah.</p>
+    </main>
+
+    <!-- Kolom kanan: kontrol & cara bermain -->
+    <aside class="info">
+      <section class="card">
+        <h2>🎮 Kontrol</h2>
+        <ul class="controls">
+          <li>
+            <span class="keys"><span class="icon">🖱️</span></span>
+            <span class="desc"><b>Mouse</b>Klik ubin yang sebaris atau sekolom dengan kotak kosong</span>
+          </li>
+          <li>
+            <span class="keys"><span class="icon">📱</span></span>
+            <span class="desc"><b>Layar sentuh</b>Ketuk ubin yang ingin digeser</span>
+          </li>
+          <li>
+            <span class="keys"><kbd class="wide">← ↑ → ↓</kbd></span>
+            <span class="desc"><b>Keyboard</b>Ubin bergeser searah panah. Bisa juga W A S D</span>
+          </li>
+          <li>
+            <span class="keys"><kbd>R</kbd></span>
+            <span class="desc"><b>Acak ulang</b>Mulai puzzle baru</span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>📖 Cara bermain</h2>
+        <ol class="steps">
+          <li>Susun angka berurutan dari 1, kotak kosong berakhir di pojok kanan bawah.</li>
+          <li>Geser ubin ke kotak kosong. Ubin lain tidak bisa dipindah langsung.</li>
+          <li>Ubin yang sudah di tempat yang benar diberi garis kuning.</li>
+          <li>Menggeser beberapa ubin sekaligus dihitung per ubin.</li>
+          <li>Waktu mulai berjalan saat geseran pertama.</li>
+        </ol>
+      </section>
+
+      <section class="card">
+        <h2>💡 Tips</h2>
+        <ul class="rules">
+          <li>Selesaikan baris paling atas dulu, lalu kolom paling kiri, dan seterusnya.</li>
+          <li>Sisakan kotak 2×2 di pojok kanan bawah untuk terakhir.</li>
+          <li>Setiap acakan pasti bisa diselesaikan.</li>
+          <li>Rekor langkah tersedikit disimpan per ukuran papan di browsermu.</li>
+        </ul>
+      </section>
+    </aside>
+
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>

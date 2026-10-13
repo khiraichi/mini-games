@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flappy Bird - Harits Web</title>
+  <link rel="stylesheet" href="../../shared.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="game-container">
+    <!-- Header Atas: Tombol Kembali & Judul Game -->
+    <div class="top-nav">
+      <a href="../../index.html" class="back-btn">← Semua game</a>
+      <h1 class="game-title">🐦 Flappy Bird</h1>
+    </div>
+
+    <div class="main-content">
+      <!-- Kolom Kiri: Skor, Canvas Game Flappy Bird, & Tombol Kontrol HP -->
+      <div class="game-area">
+        <div class="score-board">
+          <div class="score-box">
+            <span class="label">SKOR</span>
+            <span id="score">0</span>
+          </div>
+          <div class="score-box">
+            <span class="label">REKOR</span>
+            <span id="high-score">0</span>
+          </div>
+        </div>
+
+        <div class="canvas-wrapper">
+          <canvas id="gameCanvas" width="320" height="480"></canvas>
+
+          <div id="overlay" class="overlay">
+            <h2 id="overlay-title">Flappy Bird</h2>
+            <p id="overlay-msg">Tekan Spasi atau Klik untuk mulai</p>
+            <button id="start-btn" class="btn">Mulai Game</button>
+          </div>
+        </div>
+
+        <!-- Tombol Kontrol Mobile/Sentuh -->
+        <div class="mobile-controls">
+          <button id="flap-btn" class="flap-action-btn">🐤 TERBANG (KETUK / SPASI)</button>
+        </div>
+      </div>
+
+      <!-- Kolom Kanan: Panel Kontrol, Cara Bermain, & Tips -->
+      <div class="sidebar-panels">
+        <div class="panel-card">
+          <h3>🎮 Kontrol</h3>
+          <div class="control-row">
+            <span class="control-icon">␣</span>
+            <div>
+              <strong>Tombol Spasi / Klik Kiri</strong>
+              <p>Membuat burung melompat/terbang ke atas.</p>
+            </div>
+          </div>
+          <div class="control-row">
+            <span class="control-icon">📱</span>
+            <div>
+              <strong>Layar Sentuh</strong>
+              <p>Ketuk tombol "TERBANG" atau area kanvas di HP.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-card">
+          <h3>📖 Cara Bermain</h3>
+          <ul class="rules-list">
+            <li><span>1</span> Jaga agar burung tetap terbang melewati celah di antara pipa hijau.</li>
+            <li><span>2</span> Setiap pipa yang berhasil dilewati akan menambah <strong>+1 poin</strong>.</li>
+            <li>❌ <strong>Game Over:</strong> Burung menabrak tanah, menyentuh langit-langit, atau menabrak pipa.</li>
+          </ul>
+        </div>
+
+        <div class="panel-card">
+          <h3>💡 Tips</h3>
+          <p class="tips-text">Jangan mengepakkan sayap terlalu cepat. Jaga ritme ketukan agar burung terbang stabil di tengah celah.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>

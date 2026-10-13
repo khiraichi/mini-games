@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tic-Tac-Toe - Harits Web</title>
+  <link rel="stylesheet" href="../../shared.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="game-container">
+    <!-- Header Atas: Tombol Kembali & Judul Game -->
+    <div class="top-nav">
+      <a href="../../index.html" class="back-btn">← Semua game</a>
+      <h1 class="game-title">❌ Tic-Tac-Toe ⭕</h1>
+    </div>
+
+    <div class="main-content">
+      <!-- Kolom Kiri: Pilihan Mode, Papan Grid 3x3, & Status Giliran -->
+      <div class="game-area">
+        <div class="mode-selector">
+          <button id="mode-pvp" class="mode-btn active">👤 vs 👤 (Lokal)</button>
+          <button id="mode-pve" class="mode-btn">👤 vs 🤖 (Bot)</button>
+        </div>
+
+        <div class="status-board" id="status-text">
+          Giliran Pemain: <strong class="player-x">X</strong>
+        </div>
+
+        <div class="board-wrapper">
+          <div class="tic-board" id="ticBoard">
+            <div class="cell" data-index="0"></div>
+            <div class="cell" data-index="1"></div>
+            <div class="cell" data-index="2"></div>
+            <div class="cell" data-index="3"></div>
+            <div class="cell" data-index="4"></div>
+            <div class="cell" data-index="5"></div>
+            <div class="cell" data-index="6"></div>
+            <div class="cell" data-index="7"></div>
+            <div class="cell" data-index="8"></div>
+          </div>
+
+          <div id="overlay" class="overlay hidden">
+            <h2 id="overlay-title">Pemenang!</h2>
+            <p id="overlay-msg">Pemain X Berhasil Menang</p>
+            <button id="restart-btn" class="btn">Main Lagi</button>
+          </div>
+        </div>
+
+        <button id="reset-game-btn" class="secondary-btn">🔄 Reset Papan</button>
+      </div>
+
+      <!-- Kolom Kanan: Skor Statistik, Kontrol, & Cara Bermain -->
+      <div class="sidebar-panels">
+        <div class="panel-card">
+          <h3>📊 Statistik Skor</h3>
+          <div class="stats-grid">
+            <div class="stat-box">
+              <span class="label">Pemain X</span>
+              <span id="score-x">0</span>
+            </div>
+            <div class="stat-box">
+              <span class="label">Seri</span>
+              <span id="score-draw">0</span>
+            </div>
+            <div class="stat-box">
+              <span class="label">Pemain O</span>
+              <span id="score-o">0</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-card">
+          <h3>🎮 Kontrol</h3>
+          <div class="control-row">
+            <span class="control-icon">🖱️</span>
+            <div>
+              <strong>Klik / Sentuh</strong>
+              <p>Ketuk kotak kosong pada papan 3x3 untuk meletakkan simbol Anda.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-card">
+          <h3>📖 Cara Bermain</h3>
+          <ul class="rules-list">
+            <li><span>1</span> Pemain bergiliran mengisi kotak kosong dengan <strong>X</strong> atau <strong>O</strong>.</li>
+            <li><span>2</span> Pemenang adalah yang berhasil menyusun 3 simbol berurutan secara horizontal, vertikal, atau diagonal.</li>
+            <li>❌ <strong>Seri (Draw):</strong> Terjadi jika seluruh kotak terisi penuh tanpa ada yang membentuk 3 baris.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>

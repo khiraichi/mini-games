@@ -1,0 +1,54 @@
+/* Khusus Puzzle Geser. Gaya umum ada di ../../shared.css */
+
+.pboard {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  background: rgba(0, 0, 0, .28);
+  border-radius: 10px;
+  container-type: inline-size; /* supaya ukuran angka ikut ukuran papan */
+}
+
+.ptile {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100% / var(--n));
+  height: calc(100% / var(--n));
+  padding: 3px;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  transition: transform .16s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.pboard.no-anim .ptile { transition: none; }
+
+.ptile .face {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  font-size: calc(100cqw / var(--n) * .4);
+  font-weight: 800;
+  line-height: 1;
+  color: #fff;
+  background: linear-gradient(145deg, hsl(var(--h) 75% 56%), hsl(var(--h) 70% 40%));
+  box-shadow: 0 3px 0 rgba(0, 0, 0, .35);
+  user-select: none;
+}
+
+.ptile.ok .face {
+  box-shadow: 0 3px 0 rgba(0, 0, 0, .35), inset 0 0 0 3px rgba(253, 224, 71, .9);
+}
+
+.ptile:active .face { transform: translateY(2px); }
+
+.ptile:focus-visible { outline: none; }
+.ptile:focus-visible .face { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ptile { transition: none; }
+}

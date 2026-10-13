@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Memory Match</title>
+  <link rel="stylesheet" href="../../shared.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="layout">
+
+    <!-- Kolom kiri: game -->
+    <main class="game-col">
+      <a class="back" href="../../">← Semua game</a>
+      <h1>🃏 Memory Match</h1>
+
+      <div class="stats">
+        <div class="stat"><span class="label">Langkah</span><span class="value" id="moves">0</span></div>
+        <div class="stat"><span class="label">Waktu</span><span class="value" id="time">00:00</span></div>
+        <div class="stat"><span class="label">Pasangan</span><span class="value" id="pairs">0/8</span></div>
+      </div>
+
+      <div class="toolbar">
+        <div class="seg" id="levels" role="group" aria-label="Tingkat kesulitan">
+          <button type="button" data-level="easy" aria-pressed="false">Mudah</button>
+          <button type="button" data-level="medium" aria-pressed="true">Sedang</button>
+          <button type="button" data-level="hard" aria-pressed="false">Sulit</button>
+        </div>
+        <button type="button" class="btn" id="restart">↻ Acak ulang</button>
+      </div>
+
+      <div class="board-wrap">
+        <div class="mboard" id="board"></div>
+        <div class="overlay" id="win" role="status" aria-live="polite">
+          <div class="overlay-box">
+            <div class="big">🎉</div>
+            <h2>Semua cocok!</h2>
+            <p id="winText"></p>
+            <button type="button" class="btn primary" id="again">Main lagi</button>
+          </div>
+        </div>
+      </div>
+
+      <p class="record" id="record"></p>
+    </main>
+
+    <!-- Kolom kanan: kontrol & cara bermain -->
+    <aside class="info">
+      <section class="card">
+        <h2>🎮 Kontrol</h2>
+        <ul class="controls">
+          <li>
+            <span class="keys"><span class="icon">🖱️</span></span>
+            <span class="desc"><b>Mouse</b>Klik kartu untuk membukanya</span>
+          </li>
+          <li>
+            <span class="keys"><span class="icon">📱</span></span>
+            <span class="desc"><b>Layar sentuh</b>Ketuk kartu</span>
+          </li>
+          <li>
+            <span class="keys"><kbd>Tab</kbd><kbd>↵</kbd></span>
+            <span class="desc"><b>Keyboard</b>Pindah kartu dengan Tab, buka dengan Enter atau Spasi</span>
+          </li>
+          <li>
+            <span class="keys"><kbd>R</kbd></span>
+            <span class="desc"><b>Acak ulang</b>Mulai permainan baru</span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>📖 Cara bermain</h2>
+        <ol class="steps">
+          <li>Buka dua kartu dalam satu giliran.</li>
+          <li>Kalau gambarnya sama, kartu tetap terbuka (hijau).</li>
+          <li>Kalau beda, kartu menutup lagi. Ingat posisinya!</li>
+          <li>Temukan semua pasangan dengan langkah sesedikit mungkin.</li>
+          <li>Waktu mulai berjalan saat kartu pertama dibuka.</li>
+        </ol>
+      </section>
+
+      <section class="card">
+        <h2>🏅 Tingkat &amp; rekor</h2>
+        <ul class="rules">
+          <li><b>Mudah</b>: 12 kartu (6 pasang)</li>
+          <li><b>Sedang</b>: 16 kartu (8 pasang)</li>
+          <li><b>Sulit</b>: 24 kartu (12 pasang)</li>
+          <li>Rekor langkah tersedikit disimpan per tingkat di browsermu.</li>
+        </ul>
+      </section>
+    </aside>
+
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Snake Game - Harits Web</title>
+  <link rel="stylesheet" href="../../shared.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="game-container">
+    <!-- Header Atas: Tombol Kembali & Judul Game -->
+    <div class="top-nav">
+      <a href="../../index.html" class="back-btn">← Semua game</a>
+      <h1 class="game-title">🐍 Snake Game</h1>
+    </div>
+
+    <div class="main-content">
+      <!-- Kolom Kiri: Scoreboard, Canvas Game, & Tombol Kontrol HP -->
+      <div class="game-area">
+        <div class="score-board">
+          <div class="score-box">
+            <span class="label">SKOR</span>
+            <span id="score">0</span>
+          </div>
+          <div class="score-box">
+            <span class="label">REKOR</span>
+            <span id="high-score">0</span>
+          </div>
+        </div>
+
+        <div class="canvas-wrapper">
+          <canvas id="gameCanvas" width="400" height="400"></canvas>
+
+          <div id="overlay" class="overlay">
+            <h2 id="overlay-title">Snake Classic</h2>
+            <p id="overlay-msg">Tekan tombol Start atau spasi untuk mulai</p>
+            <button id="start-btn" class="btn">Mulai Game</button>
+          </div>
+        </div>
+
+        <!-- Mobile / On-Screen Controls -->
+        <div class="mobile-controls">
+          <div class="dpad">
+            <button id="btn-up" class="dpad-btn">▲</button>
+            <div class="dpad-middle">
+              <button id="btn-left" class="dpad-btn">◄</button>
+              <button id="btn-right" class="dpad-btn">►</button>
+            </div>
+            <button id="btn-down" class="dpad-btn">▼</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kolom Kanan: Panel Kontrol, Cara Bermain, & Tips (Menyerupai Puzzle) -->
+      <div class="sidebar-panels">
+        <div class="panel-card">
+          <h3>🎮 Kontrol</h3>
+          <div class="control-row">
+            <span class="control-icon">⌨️</span>
+            <div>
+              <strong>Keyboard</strong>
+              <p>Gunakan Tombol Panah (← ↑ → ↓) atau W A S D.</p>
+            </div>
+          </div>
+          <div class="control-row">
+            <span class="control-icon">📱</span>
+            <div>
+              <strong>Layar Sentuh</strong>
+              <p>Sentuh tombol D-Pad di bawah area game.</p>
+            </div>
+          </div>
+          <div class="control-row">
+            <span class="control-icon">␣</span>
+            <div>
+              <strong>Spasi / Enter</strong>
+              <p>Memulai atau mengulang permainan.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-card">
+          <h3>📖 Cara Bermain</h3>
+          <ul class="rules-list">
+            <li><span>1</span> Arahkan ular untuk memakan buah merah 🍎.</li>
+            <li><span>2</span> Setiap buah memberi <strong>+10 poin</strong> dan memperpanjang tubuh ular.</li>
+            <li>❌ <strong>Game Over:</strong> Menabrak dinding batas atau menabrak tubuh sendiri.</li>
+          </ul>
+        </div>
+
+        <div class="panel-card">
+          <h3>💡 Tips</h3>
+          <p class="tips-text">Jangan terburu-buru! Jaga jarak aman dengan ekor Anda sendiri dan manfaatkan ruang kosong di pinggir area.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
