@@ -1,0 +1,15 @@
+/* Khusus Breakout. Gaya umum ada di ../../shared.css */
+
+#board {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 480 / 560;
+  border-radius: 10px;
+  background: #0b1226;
+  cursor: none;
+  touch-action: none; /* geser jari di papan tidak menggulir halaman */
+}
+
+.tools { display: flex; gap: 8px; }
+.tools #sound { padding: 8px 12px; min-width: 42px; }

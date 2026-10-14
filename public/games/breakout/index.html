@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <title>Breakout</title>
+  <link rel="stylesheet" href="../../shared.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="layout">
+
+    <!-- Kolom kiri: game -->
+    <main class="game-col">
+      <a class="back" href="../../">← Semua game</a>
+      <h1>🧱 Breakout</h1>
+
+      <div class="stats">
+        <div class="stat"><span class="label">Skor</span><span class="value" id="score">0</span></div>
+        <div class="stat"><span class="label">Level</span><span class="value" id="level">1</span></div>
+        <div class="stat"><span class="label">Nyawa</span><span class="value" id="lives">❤️❤️❤️</span></div>
+      </div>
+
+      <div class="toolbar">
+        <div class="seg" id="modes" role="group" aria-label="Tingkat kesulitan">
+          <button type="button" data-mode="easy" aria-pressed="false">Santai</button>
+          <button type="button" data-mode="normal" aria-pressed="true">Normal</button>
+          <button type="button" data-mode="hard" aria-pressed="false">Sulit</button>
+        </div>
+        <div class="tools">
+          <button type="button" class="btn" id="sound" aria-pressed="true" aria-label="Suara" title="Suara (M)">🔊</button>
+          <button type="button" class="btn" id="restart">↻ Mulai ulang</button>
+        </div>
+      </div>
+
+      <div class="board-wrap">
+        <canvas id="board" width="480" height="560" aria-label="Papan permainan Breakout"></canvas>
+        <div class="overlay show" id="overlay" role="status" aria-live="polite">
+          <div class="overlay-box">
+            <div class="big" id="ovEmoji">🧱</div>
+            <h2 id="ovTitle">Siap main?</h2>
+            <p id="ovText">Gerakkan paddle, lalu luncurkan bola dengan klik atau Spasi.</p>
+            <button type="button" class="btn primary" id="ovBtn">Mulai</button>
+          </div>
+        </div>
+      </div>
+
+      <p class="record" id="record"></p>
+    </main>
+
+    <!-- Kolom kanan: kontrol & cara bermain -->
+    <aside class="info">
+      <section class="card">
+        <h2>🎮 Kontrol</h2>
+        <ul class="controls">
+          <li>
+            <span class="keys"><span class="icon">🖱️</span></span>
+            <span class="desc"><b>Mouse</b>Gerakkan ke kiri / kanan, klik untuk meluncurkan bola</span>
+          </li>
+          <li>
+            <span class="keys"><span class="icon">📱</span></span>
+            <span class="desc"><b>Layar sentuh</b>Geser jari untuk menggerakkan paddle, ketuk untuk meluncurkan bola</span>
+          </li>
+          <li>
+            <span class="keys"><kbd>←</kbd><kbd>→</kbd></span>
+            <span class="desc"><b>Keyboard</b>Atau tombol <kbd>A</kbd> <kbd>D</kbd></span>
+          </li>
+          <li>
+            <span class="keys"><kbd class="wide">Spasi</kbd></span>
+            <span class="desc"><b>Luncurkan / jeda</b>Bisa juga dengan tombol P</span>
+          </li>
+          <li>
+            <span class="keys"><kbd>R</kbd> <kbd>M</kbd></span>
+            <span class="desc"><b>Mulai ulang / suara</b>R mengulang dari awal, M menyalakan atau mematikan suara</span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>📖 Cara bermain</h2>
+        <ol class="steps">
+          <li>Luncurkan bola, lalu pantulkan dengan paddle di bawah.</li>
+          <li>Hancurkan semua balok untuk lanjut ke level berikutnya.</li>
+          <li>Kena <b>ujung paddle</b> = bola memantul miring, kena <b>tengah</b> = lurus ke atas.</li>
+          <li>Kalau bola jatuh, nyawa berkurang. Habis 3 nyawa, game over.</li>
+          <li>Tiap level bola makin cepat dan susunan balok berubah.</li>
+        </ol>
+      </section>
+
+      <section class="card">
+        <h2>🏅 Poin</h2>
+        <ul class="rules">
+          <li>Balok baris atas bernilai paling besar (60), baris bawah paling kecil (10).</li>
+          <li>Balok bergaris tebal butuh <b>2 pukulan</b> dan bernilai ganda.</li>
+          <li>Selesaikan level dengan nyawa utuh untuk bonus +50 per nyawa.</li>
+          <li>Rekor disimpan per tingkat kesulitan di browsermu.</li>
+        </ul>
+      </section>
+    </aside>
+
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
